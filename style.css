@@ -1,14 +1,189 @@
-body {
-    text-align: center;
-}
-.link-button {
-    display: block;
-    margin: 10px auto;
-    padding: 15px;
-    width: 300px;
+/* =========================================================
+   SHPE Jr. Linktree — style.css
+   This file controls how the page LOOKS.
+   The index.html file controls what the page SAYS.
+   ========================================================= */
 
-    background-color: green;
-    color: white;
+/* ---------- Colors (Light Mode = default) ----------
+   These are "variables". Think of them like nicknames for
+   colors, so if you want to change the green later, you
+   only change it here in one place. */
+:root,
+[data-theme='light'] {
+    --color-bg: #f4f7f4;
+    --color-surface: #ffffff;
+    --color-text: #1c2b1f;
+    --color-text-muted: #5c6b5f;
+    --color-primary: #0a7d3d;        /* the main green */
+    --color-primary-hover: #075e2d;   /* darker green on hover */
+    --color-primary-soft: #e6f4ea;    /* light green background */
+    --color-border: #e0e6e1;
+    --color-shadow: rgba(10, 125, 61, 0.10);
+}
+
+/* ---------- Colors (Dark Mode) ---------- */
+[data-theme='dark'] {
+    --color-bg: #0f1410;
+    --color-surface: #1a201b;
+    --color-text: #e8efe8;
+    --color-text-muted: #9aa89c;
+    --color-primary: #3fbf6f;
+    --color-primary-hover: #5ccf85;
+    --color-primary-soft: #1d2a20;
+    --color-border: #2a332b;
+    --color-shadow: rgba(0, 0, 0, 0.40);
+}
+
+/* ---------- Reset ----------
+   Removes the default spacing browsers add, so we start clean. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Page / Body ---------- */
+body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    /* centers everything horizontally */
+    text-align: center;
+    /* makes the page fill the screen height */
+    min-height: 100dvh;
+    /* flexbox centers the content vertically too */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    line-height: 1.6;
+}
+
+/* ---------- Main container card ---------- */
+.container {
+    width: 100%;
+    max-width: 420px;       /* never wider than a phone-ish width */
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    padding: 40px 28px;
+    box-shadow: 0 18px 50px var(--color-shadow);
+}
+
+/* ---------- Dark mode button ---------- */
+.theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    z-index: 10;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.theme-toggle:hover {
+    color: var(--color-primary);
+    transform: scale(1.08);
+}
+
+/* ---------- Profile / logo area ---------- */
+.profile {
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 96px;
+    height: 96px;
+    border-radius: 24px;
+    margin: 0 auto 18px;
+    display: block;
+    color: var(--color-primary);   /* the SVG "currentColor" uses this */
+    box-shadow: 0 10px 24px var(--color-shadow);
+}
+
+.name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.school {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* ---------- Link buttons ---------- */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--color-primary-soft);
+    color: var(--color-text);
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1.5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* When you hover or tab to a button */
+.link-button:hover,
+.link-button:focus-visible {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+    outline: none;
+}
+
+/* The little icon inside each button */
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    margin-top: 32px;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* ---------- Phones in landscape or very small screens ---------- */
+@media (max-width: 360px) {
+    .container {
+        padding: 32px 18px;
+    }
+    .name {
+        font-size: 1.5rem;
+    }
 }
