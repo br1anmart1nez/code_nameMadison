@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Makes the page look good on phones by matching the screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHPE Jr. — Miami Senior High</title>
+
+    <!-- This text shows up when someone shares the link on social media -->
+    <meta name="description" content="Society of Hispanic Professional Engineers Jr. Chapter at Miami Senior High School. Connect with us and join our community.">
+
+    <!-- Link to the stylesheet (the file that controls how everything looks) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Load a clean font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Dark mode toggle button (sun/moon icon) -->
+    <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+    </button>
+
+    <!-- Main content card -->
+    <main class="container">
+
+        <!-- Logo / profile circle -->
+        <div class="profile">
+            <!-- A simple SVG logo mark (no official SHPE logo used) -->
+            <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="SHPE Jr. logo">
+                <rect width="100" height="100" rx="24" fill="currentColor"></rect>
+                <path d="M30 64c0 5 4 8 10 8 5 0 9-2 9-7 0-9-19-5-19-16 0-6 5-9 11-9 4 0 8 1 10 4" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="68" cy="34" r="4" fill="#fff"></circle>
+            </svg>
+            <h1 class="name">SHPE Jr.</h1>
+            <p class="tagline">Society of Hispanic Professional Engineers</p>
+            <p class="school">Miami Senior High School</p>
+        </div>
+
+        <!-- Link buttons -->
+        <nav class="links" aria-label="Chapter links">
+
+            <!-- TODO: Replace the # below with your real Google Calendar or RSVP form link -->
+            <a class="link-button" href="#">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <path d="M16 2v4M8 2v4M3 10h18"></path>
+                </svg>
+                <span>Meeting Calendar</span>
+            </a>
+
+            <a class="link-button" href="https://www.instagram.com/mhs.shpe/" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+                </svg>
+                <span>Instagram</span>
+            </a>
+
+            <a class="link-button" href="https://chat.whatsapp.com/G0UZzJIZAsCB2V5xXMhcQR" target="_blank" rel="noopener">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                <span>WhatsApp</span>
+            </a>
+
+        </nav>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© <span id="year"></span> SHPE Jr. Chapter — Miami Senior High</p>
+        </footer>
+
+    </main>
+
+    <!-- Small script for the dark mode toggle and the year in the footer -->
+    <script>
+        // Dark mode toggle
+        (function () {
+            var toggle = document.querySelector('[data-theme-toggle]');
+            var root = document.documentElement;
+            var mode = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+            root.setAttribute('data-theme', mode);
+
+            toggle.addEventListener('click', function () {
+                mode = mode === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', mode);
+                toggle.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
+            });
+        })();
+
+        // Put the current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
