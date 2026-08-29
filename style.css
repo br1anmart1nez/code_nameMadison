@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+.link-button {
+    display: block;
+    margin: 10px auto;
+    padding: 15px;
+    width: 300px;
+
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
