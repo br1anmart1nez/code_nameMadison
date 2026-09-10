@@ -21,6 +21,13 @@
     </button>
 
     <main class="container">
+        <!-- Back button -->
+<a href="index.html" class="back-button" aria-label="Back to home">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span>Back</span>
+</a>
         <div class="profile">
             <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="SHPE Jr. logo">
                 <rect width="100" height="100" rx="24" fill="currentColor"></rect>
@@ -66,21 +73,39 @@
 
     <script src="calendar.js"></script>
     <script>
-        // Same dark mode + year logic as your main page
-        (function () {
-            var toggle = document.querySelector('[data-theme-toggle]');
-            var root = document.documentElement;
-            var mode = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+    (function () {
+        var toggle = document.querySelector('[data-theme-toggle]');
+        var root = document.documentElement;
+
+        var savedTheme = localStorage.getItem('shpe-theme');
+
+        var mode = savedTheme || (
+            matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+        );
+
+        root.setAttribute('data-theme', mode);
+
+        toggle.setAttribute(
+            'aria-label',
+            'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
+        );
+
+        toggle.addEventListener('click', function () {
+            mode = mode === 'dark' ? 'light' : 'dark';
+
             root.setAttribute('data-theme', mode);
+            localStorage.setItem('shpe-theme', mode);
 
-            toggle.addEventListener('click', function () {
-                mode = mode === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-theme', mode);
-                toggle.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
-            });
-        })();
+            toggle.setAttribute(
+                'aria-label',
+                'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
+            );
+        });
+    })();
 
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

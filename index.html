@@ -39,7 +39,7 @@
                 <path d="M30 64c0 5 4 8 10 8 5 0 9-2 9-7 0-9-19-5-19-16 0-6 5-9 11-9 4 0 8 1 10 4" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
                 <circle cx="68" cy="34" r="4" fill="#fff"></circle>
             </svg>
-            <h1 class="name">SHPE Jr.</h1>
+            <h1 class="name">SHPE</h1>
             <p class="tagline">Society of Hispanic Professional Engineers</p>
             <p class="school">Miami Senior High School</p>
         </div>
@@ -56,6 +56,13 @@
                 <span>Meeting Calendar</span>
             </a>
 
+            <a class="link-button" href="resources.html">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>STEM &amp; CS Resources</span>
+            </a>
             <a class="link-button" href="https://www.instagram.com/mhs.shpe/" target="_blank" rel="noopener">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5"></rect>
@@ -83,22 +90,39 @@
 
     <!-- Small script for the dark mode toggle and the year in the footer -->
     <script>
-        // Dark mode toggle
-        (function () {
-            var toggle = document.querySelector('[data-theme-toggle]');
-            var root = document.documentElement;
-            var mode = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+    (function () {
+        var toggle = document.querySelector('[data-theme-toggle]');
+        var root = document.documentElement;
+
+        var savedTheme = localStorage.getItem('shpe-theme');
+
+        var mode = savedTheme || (
+            matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+        );
+
+        root.setAttribute('data-theme', mode);
+
+        toggle.setAttribute(
+            'aria-label',
+            'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
+        );
+
+        toggle.addEventListener('click', function () {
+            mode = mode === 'dark' ? 'light' : 'dark';
+
             root.setAttribute('data-theme', mode);
+            localStorage.setItem('shpe-theme', mode);
 
-            toggle.addEventListener('click', function () {
-                mode = mode === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-theme', mode);
-                toggle.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
-            });
-        })();
+            toggle.setAttribute(
+                'aria-label',
+                'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
+            );
+        });
+    })();
 
-        // Put the current year in the footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

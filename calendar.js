@@ -3,27 +3,9 @@
 // ==========================
 
 const MEETINGS = [
-  {
-    date: "2026-09-10",
-    title: "First General Meeting",
-    time: "3:30 PM",
-    location: "Room 305",
-    notes: "Bring your planner and meet the board."
-  },
-  {
-    date: "2026-09-24",
-    title: "Workshop: Intro to Python",
-    time: "3:45 PM",
-    location: "Media Center",
-    notes: "Laptops provided."
-  },
-  {
-    date: "2026-10-08",
-    title: "Guest Speaker: Local Engineer",
-    time: "3:30 PM",
-    location: "Auditorium",
-    notes: "Q&A session after talk."
-  }
+  
+  
+  
   // Add more meetings here as needed, up to May 2027.
   // Example:
   // {

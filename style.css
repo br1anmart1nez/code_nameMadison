@@ -328,3 +328,142 @@ body {
         font-size: 0.8rem;
     }
 }
+
+/* ========== Back Button (Calendar Page) ========== */
+
+.back-button {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    z-index: 20;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover,
+.back-button:focus-visible {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+    outline: none;
+}
+
+.back-button svg {
+    flex-shrink: 0;
+}
+
+/* ========== Resources Page ========== */
+
+/* Makes anchor links scroll smoothly to each section */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Category buttons near the top of the resource page */
+.resource-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 28px;
+}
+
+.resource-nav a {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.resource-nav a:hover,
+.resource-nav a:focus-visible {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    outline: none;
+    transform: translateY(-1px);
+}
+
+/* Each topic area, such as Computer Science or Engineering */
+.resource-section {
+    margin-top: 28px;
+    padding-top: 4px;
+    text-align: left;
+}
+
+.resource-section h2 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.resource-intro {
+    color: var(--color-text-muted);
+    font-size: 0.84rem;
+    margin-bottom: 14px;
+}
+
+/* Resource website button */
+.resource-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-primary-soft);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.resource-link:hover,
+.resource-link:focus-visible {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 8px 20px var(--color-shadow);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.resource-arrow {
+    flex-shrink: 0;
+    font-size: 1.05rem;
+}
+
+.resource-description {
+    margin: 7px 4px 18px;
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+/* Helps the section title stay visible below the page edge when an anchor is clicked */
+.resource-section {
+    scroll-margin-top: 20px;
+}
