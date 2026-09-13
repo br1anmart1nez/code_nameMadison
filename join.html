@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join SHPE Jr. — Miami Senior High</title>
+    <meta
+        name="description"
+        content="Learn how to join the SHPE Jr. Chapter at Miami Senior High School."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Back button -->
+    <a href="index.html" class="back-button" aria-label="Back to home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+        </svg>
+        <span>Back</span>
+    </a>
+
+    <!-- Theme button -->
+    <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+    </button>
+
+    <main class="container">
+        <div class="profile">
+            <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="SHPE Jr. logo">
+                <rect width="100" height="100" rx="24" fill="currentColor"></rect>
+                <path d="M30 64c0 5 4 8 10 8 5 0 9-2 9-7 0-9-19-5-19-16 0-6 5-9 11-9 4 0 8 1 10 4" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="68" cy="34" r="4" fill="#fff"></circle>
+            </svg>
+
+            <h1 class="name">Join SHPE Jr.</h1>
+            <p class="tagline">Explore STEM, build skills, and connect with your community.</p>
+            <p class="school">Miami Senior High School</p>
+        </div>
+
+        <section class="join-section">
+            <h2>Interested in joining?</h2>
+
+            <p>
+                SHPE Jr. is a student community for exploring computer science,
+                engineering, STEM careers, leadership, and college opportunities.
+            </p>
+
+           
+
+            <!-- Replace href="#" with the approved school or Google Form link later. -->
+
+        <a
+            class="join-button"
+            href="https://forms.gle/7heesxzQjLmuaD41A"
+            target="_blank"
+            rel="noopener"
+        >
+            <span>Complete the Interest Form</span>
+            <span>↗</span>
+        </a>
+
+
+            <p class="join-note">
+                Please check our meeting calendar, Instagram, or WhatsApp group for
+                current announcements.
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>© <span id="year"></span> SHPE Jr. Chapter — Miami Senior High</p>
+        </footer>
+    </main>
+
+    <script>
+        (function () {
+            var toggle = document.querySelector('[data-theme-toggle]');
+            var root = document.documentElement;
+
+            var savedTheme = localStorage.getItem('shpe-theme');
+
+            var mode = savedTheme || (
+                matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light'
+            );
+
+            root.setAttribute('data-theme', mode);
+
+            toggle.setAttribute(
+                'aria-label',
+                'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
+            );
+
+            toggle.addEventListener('click', function () {
+                mode = mode === 'dark' ? 'light' : 'dark';
+
+                root.setAttribute('data-theme', mode);
+                localStorage.setItem('shpe-theme', mode);
+
+                toggle.setAttribute(
+                    'aria-label',
+                    'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
+                );
+            });
+        })();
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
